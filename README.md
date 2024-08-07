@@ -1,7 +1,9 @@
 
 # Guia Rápido de Comandos Git
 
-Este documento fornece uma visão geral dos principais comandos do Git para gerenciamento de repositórios. Ele é destinado a ajudar desenvolvedores a realizar operações básicas e intermediárias no Git.
+Este documento fornece uma visão geral dos principais comandos do Git para gerenciamento de repositórios.
+
+Criado para tirar dúvidas configurações e alguns dos principais comandos utilizados.
 
 ## Sumário
 
@@ -144,104 +146,104 @@ git pull
 ```
 
 ### Trabalhando com Branches
-Branches permitem que você trabalhe em diferentes versões de um repositório ao mesmo tempo.
+Branches permitem que você trabalhe em diferentes versões de um repositório ao mesmo tempo. Isso é útil para gerenciar novas funcionalidades, correções de bugs ou experimentos sem afetar a branch principal (geralmente main ou master).
 
 #### Criar uma Nova Branch
-Cria uma nova branch a partir da branch atual.
+Cria uma nova branch a partir da branch atual. Use este comando quando quiser começar a desenvolver uma nova funcionalidade ou corrigir um bug sem interferir na branch atual.
 ```
 git branch <nome-da-branch>
 ```
 
 #### Mudar para uma Branch
-Alterna para a branch especificada.
+Alterna para a branch especificada. Use este comando quando quiser trocar para outra branch para ver ou continuar o trabalho naquela branch.
 ```
 git checkout <nome-da-branch>
 ```
 
 #### Criar e Mudar para uma Nova Branch
-Cria uma nova branch e muda para ela imediatamente.
+Cria uma nova branch e muda para ela imediatamente. Use este comando quando quiser criar uma nova branch e começar a trabalhar nela de uma vez.
 ```
-git checkout -b <nome-da-branch>
+git checkout -b nome_da_branch
 ```
 
 #### Mesclar uma Branch na Atual
-Mescla as alterações de uma branch especificada na branch atual.
+Mescla as alterações de uma branch especificada na branch atual. Use este comando quando quiser incorporar as alterações feitas em uma branch de desenvolvimento ou correção de bugs na branch atual.
 ```
-git merge <nome-da-branch>
+git merge nome_da_branch
 ```
 
 #### Deletar uma Branch
-Remove uma branch que não está mais em uso.
+Remove uma branch que não está mais em uso. Use este comando quando uma branch foi mesclada ou não é mais necessária, e você deseja manter seu repositório limpo.
 ```
-git branch -d <nome-da-branch>
+git branch -d nome_da_branch
 ```
 #### Para forçar a remoção de uma branch que ainda não foi mesclada:
+Use este comando com cautela para remover uma branch que possui alterações não mescladas, pois isso pode resultar na perda de trabalho não incorporado em outras branches.
 ```
-git branch -D <nome-da-branch>
+git branch -D nome_da_branch
 ```
 
 ### Repositórios Remotos
-Repositórios remotos são versões de seu projeto que estão hospedadas na internet ou em uma rede.
+Repositórios remotos são versões de seu projeto que estão hospedadas na internet ou em uma rede. Eles permitem a colaboração com outros desenvolvedores e o backup de seu trabalho.
 
 #### Adicionar um Repositório Remoto
-Adiciona um repositório remoto com um nome especificado.
+Adiciona um repositório remoto com um nome especificado. Use este comando quando quiser associar seu repositório local a um repositório remoto, geralmente para começar a compartilhar seu trabalho com outros.
 ```
-git remote add <nome-do-remoto> <url-do-repositório>
+git remote add nome_do_remoto URL_remoto
 ```
 #### Verificar os Remotos Configurados
-Lista todos os repositórios remotos 
-configurados.
+Lista todos os repositórios remotos configurados. Use este comando para ver quais repositórios remotos estão associados ao seu repositório local.
 ```
 git remote -v
 ```
 
 #### Remover um Repositório Remoto
-Remove a associação com um repositório remoto.
+Remove a associação com um repositório remoto. Use este comando quando um repositório remoto não for mais necessário ou estiver incorreto.
 ```
-git remote remove <nome-do-remoto>
+git remote remove nome_remoto
 ```
 
 #### Renomear um Repositório Remoto
-Renomeia um repositório remoto.
+Renomeia um repositório remoto. Use este comando quando quiser mudar o nome de um repositório remoto para algo mais descritivo ou adequado.
 ```
-git remote rename <nome-antigo> <nome-novo>
+git remote rename nome_antigo nome_novo
 ```
 
 ### Visualização de Histórico
-É importante visualizar o histórico de commits para entender a evolução do projeto.
+É importante visualizar o histórico de commits para entender a evolução do projeto e acompanhar as mudanças feitas ao longo do tempo.
 
 #### Ver o Histórico de Commits
-Mostra uma lista de commits em ordem cronológica inversa.
+Mostra uma lista de commits em ordem cronológica inversa. Use este comando para ver detalhes completos de cada commit, incluindo autor, data e mensagem.
 ```
 git log
 ```
 
 ### Ver um Histórico Compacto
-Mostra um histórico resumido dos commits, útil para uma visão geral rápida.
+Mostra um histórico resumido dos commits, útil para uma visão geral rápida. Use este comando para uma visão simplificada do histórico de commits.
 ```
 git log --oneline
 ```
 
 #### Ver um Histórico Gráfico
-Mostra um gráfico das branches e merges do repositório.
+Mostra um gráfico das branches e merges do repositório. Use este comando para visualizar a estrutura do repositório, incluindo como as branches divergem e se unem.
 ```
 git log --graph --oneline --all
 ```
 
 #### Ver as Alterações de um Commit Específico
-Mostra as alterações feitas em um commit específico.
+Mostra as alterações feitas em um commit específico. Use este comando para inspecionar o que foi modificado em um commit particular.
 ```
-git show <hash-do-commit>
+git show hash_commit
 ```
 
 #### Ver as Alterações entre Commits
-Mostra as diferenças entre dois commits.
+Mostra as diferenças entre dois commits. Use este comando para comparar duas versões específicas do projeto e ver o que mudou entre elas.
 ```
-git diff <commit1> <commit2>
+git diff commit1 commit2
 ```
 
 #### Ver as Alterações desde o Último Commit
-Mostra as diferenças entre a árvore de trabalho e o último commit.
+Mostra as diferenças entre a árvore de trabalho e o último commit. Use este comando para ver as alterações que ainda não foram commitadas.
 ```
 git diff HEAD
 ```
@@ -250,25 +252,26 @@ git diff HEAD
 Desfazer mudanças é uma parte crítica do fluxo de trabalho no Git. Existem várias maneiras de desfazer alterações dependendo do que você deseja alcançar.
 
 #### Desfazer Alterações no Arquivo da Árvore de Trabalho
-Descarta as mudanças não confirmadas no arquivo e restaura a última versão confirmada.
+Descarta as mudanças não confirmadas no arquivo e restaura a última versão confirmada. Use este comando para reverter modificações em um arquivo específico que ainda não foram commitadas.
 ```
 git checkout -- <arquivo>
 ```
 
 #### Desfazer Alterações na Área de Preparação
-Remove as mudanças da área de preparação, mas mantém as alterações na árvore de trabalho.
+Remove as mudanças da área de preparação, mas mantém as alterações na árvore de trabalho. Use este comando para tirar um arquivo da área de preparação enquanto mantém suas mudanças no diretório de trabalho.
 ```
 git reset HEAD <arquivo>
 ```
 
 ### Reverter um Commit
-Cria um novo commit que desfaz as alterações de um commit anterior. O histórico do commit original é preservado.
+Cria um novo commit que desfaz as alterações de um commit anterior. O histórico do commit original é preservado. Use este comando para desfazer as mudanças de um commit sem alterar o histórico do repositório.
 ```
 git revert <hash-do-commit>
 ```
 
-## Modos de `git reset`
 
+## Reset de Commit
+### Tipos
 1. `--soft`
 2. `--mixed` (padrão)
 3. `--hard`
@@ -291,6 +294,8 @@ Este é o modo mais drástico. Move o ponteiro do HEAD para o commit especificad
 
 Quando usar:
 - Quando você quer desfazer commits e descartar todas as alterações feitas nos arquivos desde esse commit. Use com cuidado, pois as alterações serão perdidas permanentemente.
+
+
 ## 🚀 Sobre mim
 Me chamo Vinicius Mariath, tenho 33 anos, sou formado em Gastronomia, sempre estive próximo a área tecnológica, e agora me encontro em processo de transição de carreira para a área de desenvolvimento com foco em tecnologias backend, especialmente Java.
 
